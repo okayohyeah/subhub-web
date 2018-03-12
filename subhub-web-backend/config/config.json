@@ -1,13 +1,13 @@
 {
   "development": {
-    "username": "root",
+    "username": null,
     "password": null,
     "database": "subhub-web-dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
+    "username": null,
     "password": null,
     "database": "subhub-web-test",
     "host": "127.0.0.1",
