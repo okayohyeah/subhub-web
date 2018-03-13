@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     grade: DataTypes.INTEGER,
     date: DataTypes.DATE,
     rating: DataTypes.INTEGER,
-    notes: DataTypes.TEXT
+    notes: DataTypes.TEXT,
+    goldlist: DataTypes.STRING,
+    avoidlist: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {

@@ -31,11 +31,13 @@ app.post('/assignments', (req, res) => {
   req.checkBody('date', 'Is required').notEmpty();
   req.checkBody('rating', 'Is required').notEmpty();
   req.checkBody('notes', 'Is required').notEmpty();
+  req.checkBody('goldlist', 'Is required').notEmpty();
+  req.checkBody('avoidlist', 'Is required').notEmpty();
 
   // run validations
   req.getValidationResult()
     .then((validationErrors) => {
-      // no errors, create assignment
+      // no errors, CREATE Assignment
       if(validationErrors.isEmpty()) {
         Assignment.create({
           school: req.body.school,
@@ -43,7 +45,9 @@ app.post('/assignments', (req, res) => {
           grade: req.body.grade,
           date: req.body.date,
           rating: req.body.rating,
-          notes: req.body.notes
+          notes: req.body.notes,
+          goldlist: req.body.goldlist,
+          avoidlist: req.body.avoidlist
         }).then((assignment) => {
           res.status(201)
           res.json({assignment: assignment})

@@ -10,6 +10,8 @@ module.exports = function(sequelize, DataTypes){
     grade: 4,
     date: '2018-03-14T00:00:00.000Z',
     rating: 3,
-    notes: 'Lesson plan provided. LA complex to teach as sub. No duty. Kids okay.'
+    notes: 'Lesson plan provided. LA complex to teach as sub. No duty. Kids okay.',
+    goldlist: 'Yes',
+    avoidlist: 'No'
   })
 }

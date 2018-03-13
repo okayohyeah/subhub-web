@@ -32,7 +32,9 @@ it('Creates assignments', ()=> {
       grade: 4,
       date: '2018-03-14T00:00:00.000Z', 
       rating: 4,
-      notes: 'Great administration. Lesson plans provided. Kids good for the most part.'
+      notes: 'Great administration. Lesson plans provided. Kids good for the most part.',
+      goldlist: 'Yes',
+      avoidlist: 'No'
     })
     .then(response => {
       expect(response.statusCode).toBe(201)
@@ -41,7 +43,9 @@ it('Creates assignments', ()=> {
       expect(response.body.assignment.grade).toBe(4),
       expect(response.body.assignment.date).toBe('2018-03-14T00:00:00.000Z'),
       expect(response.body.assignment.rating).toBe(4),
-      expect(response.body.assignment.notes).toBe('Great administration. Lesson plans provided. Kids good for the most part.')
+      expect(response.body.assignment.notes).toBe('Great administration. Lesson plans provided. Kids good for the most part.'),
+      expect(response.body.assignment.goldlist).toBe('Yes'),
+      expect(response.body.assignment.avoidlist).toBe('No')
     })
 })
 
@@ -54,7 +58,9 @@ it('Validates school when creating assignment', () => {
       grade: 4,
       date: '2018-03-14T00:00:00.000Z', 
       rating: 4,
-      notes: 'Great administration. Lesson plans provided. Kids good for the most part.'
+      notes: 'Great administration. Lesson plans provided. Kids good for the most part.',
+      goldlist: 'Yes',
+      avoidlist: 'No'
     })
     .then(response => {
       expect(response.statusCode).toBe(400)
@@ -73,7 +79,9 @@ it('Validates teacher when creating assignment', () => {
       grade: 4,
       date: '2018-03-14T00:00:00.000Z', 
       rating: 4,
-      notes: 'Great administration. Lesson plans provided. Kids good for the most part.'
+      notes: 'Great administration. Lesson plans provided. Kids good for the most part.',
+      goldlist: 'Yes',
+      avoidlist: 'No'
     })
     .then(response => {
       expect(response.statusCode).toBe(400)
@@ -92,7 +100,9 @@ it('Validates grade when creating assignment', () => {
       teacher: 'Sam Silas',
       date: '2018-03-14T00:00:00.000Z', 
       rating: 4,
-      notes: 'Great administration. Lesson plans provided. Kids good for the most part.'
+      notes: 'Great administration. Lesson plans provided. Kids good for the most part.',
+      goldlist: 'Yes',
+      avoidlist: 'No'
     })
     .then(response => {
       expect(response.statusCode).toBe(400)
@@ -111,7 +121,9 @@ it('Validates grade when creating assignment', () => {
       teacher: 'Sam Silas',
       grade: 4,
       rating: 4,
-      notes: 'Great administration. Lesson plans provided. Kids good for the most part.'
+      notes: 'Great administration. Lesson plans provided. Kids good for the most part.',
+      goldlist: 'Yes',
+      avoidlist: 'No'
     })
     .then(response => {
       expect(response.statusCode).toBe(400)
@@ -130,7 +142,9 @@ it('Validates rating when creating assignment', () => {
       teacher: 'Sam Silas',
       grade: 4,
       date: '2018-03-14T00:00:00.000Z',
-      notes: 'Great administration. Lesson plans provided. Kids good for the most part.'
+      notes: 'Great administration. Lesson plans provided. Kids good for the most part.',
+      goldlist: 'Yes',
+      avoidlist: 'No'
     })
     .then(response => {
       expect(response.statusCode).toBe(400)
@@ -149,12 +163,56 @@ it('Validates notes when creating assignment', () => {
       teacher: 'Sam Silas',
       grade: 4,
       date: '2018-03-14T00:00:00.000Z',
-      rating: 4
+      rating: 4,
+      goldlist: 'Yes',
+      avoidlist: 'No'
     })
     .then(response => {
       expect(response.statusCode).toBe(400)
       const error = response.body.errors.validations[0]
       expect(error.param).toBe('notes')
+      expect(error.msg).toBe('Is required')
+    })
+})
+
+// ** assignments - GOLDLIST ** VALIDATE POST
+it('Validates goldlist when creating assignment', () => {
+  return request(app)
+    .post('/assignments')
+    .send({
+      school: 'Juniper Elementary School',
+      teacher: 'Sam Silas',
+      grade: 4,
+      date: '2018-03-14T00:00:00.000Z',
+      notes: 'Great administration. Lesson plans provided. Kids good for the most part.',
+      rating: 4,
+      avoidlist: 'No'
+    })
+    .then(response => {
+      expect(response.statusCode).toBe(400)
+      const error = response.body.errors.validations[0]
+      expect(error.param).toBe('goldlist')
+      expect(error.msg).toBe('Is required')
+    })
+})
+
+// ** assignments - AVOIDLIST ** VALIDATE POST
+it('Validates avoidlist when creating assignment', () => {
+  return request(app)
+    .post('/assignments')
+    .send({
+      school: 'Juniper Elementary School',
+      teacher: 'Sam Silas',
+      grade: 4,
+      date: '2018-03-14T00:00:00.000Z',
+      notes: 'Great administration. Lesson plans provided. Kids good for the most part.',
+      rating: 4,
+      goldlist: 'Yes'
+    })
+    .then(response => {
+      expect(response.statusCode).toBe(400)
+      const error = response.body.errors.validations[0]
+      expect(error.param).toBe('avoidlist')
       expect(error.msg).toBe('Is required')
     })
 })
