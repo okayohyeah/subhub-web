@@ -17,10 +17,10 @@ class App extends Component {
                 <PageHeader id='header'>
                   SubHub <small className='subtitle'>The place for subs</small>
                 </PageHeader>
-                <h3 id='greeting'>How was your day?</h3>
+                <h2 id='greeting'>How was your day?</h2>
                 <h4>
-                  <Link to='/addassignment' id='add-assignment'>
-                    + Record your assignment
+                  <Link to='/addassignment' id='add-assignment' className='links'>
+                    + Add assignment
                   </Link>
                 </h4>
               </Grid>
@@ -32,7 +32,7 @@ class App extends Component {
               <NavBar />
               <Grid>
                 <PageHeader id='header'>
-                  How was your day? <small className='subtitle'>Record the assignment</small>
+                  How was your day? <small className='subtitle'>Let us make a record of your assignment.</small>
                 </PageHeader>
               </Grid>
             </div>

@@ -11,6 +11,6 @@ it('renders without crashing', () => {
 
 it('renders create an assignment form', () => {
   const app = mount(<App />);
-  expect(app.find('#add-assignment').text()).toEqual('+ Record your assignment')
+  expect(app.find('#add-assignment').text()).toEqual('+ Add assignment')
 });
 
