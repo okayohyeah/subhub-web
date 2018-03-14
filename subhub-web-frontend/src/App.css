@@ -1,0 +1,26 @@
+/*.App {
+  text-align: center;
+}*/
+
+.nav-header {
+  padding-right: 20px;
+}
+.nav-link-color a{
+  color: rgba(255, 255, 255, 0.6);
+  padding-right: 30px;
+  text-decoration: none;
+}
+
+.subtitle {
+  color: #78C2AD;
+}
+
+#header {
+  padding-top: 30px;
+}
+
+#greeting {
+  color: #78C2AD;
+}
+
+
