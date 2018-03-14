@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Grid, PageHeader } from 'react-bootstrap';
 
 import NavBar from './pages/NavBar';
+import AddAssignment from './pages/AddAssignment';
 import styles from './App.css';
 
 class App extends Component {
@@ -30,11 +31,7 @@ class App extends Component {
           <Route exact path='/addassignment' render={props => (
             <div>
               <NavBar />
-              <Grid>
-                <PageHeader id='header'>
-                  How was your day? <small className='subtitle'>Let us make a record of your assignment.</small>
-                </PageHeader>
-              </Grid>
+              <AddAssignment />
             </div>
           )} />   
 
