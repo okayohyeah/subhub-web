@@ -7,11 +7,15 @@ module.exports = function(sequelize, DataTypes){
   return dbMock.define('Assignment', {
     school: 'Orange Glen Elementary School',
     teacher: 'Eli Perez',
-    grade: 4,
-    date: '2018-03-14T00:00:00.000Z',
-    rating: 3,
-    notes: 'Lesson plan provided. LA complex to teach as sub. No duty. Kids okay.',
-    goldlist: 'Yes',
-    avoidlist: 'No'
+    grade: '4',
+    date: '2018-03-14',
+    adminRate: 4,
+    lessonPlansRate: 3,
+    studentsRate: 4,
+    schoolCultureRate: 2,
+    overallRate: 3,
+    goldList: false,
+    redList: false,
+    notes: 'Lesson plan provided. LA complex to teach as sub. No duty. Kids okay.'
   })
 }

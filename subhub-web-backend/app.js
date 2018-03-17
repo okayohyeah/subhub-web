@@ -29,10 +29,14 @@ app.post('/assignments', (req, res) => {
   req.checkBody('teacher', 'Is required').notEmpty();
   req.checkBody('grade', 'Is required').notEmpty();
   req.checkBody('date', 'Is required').notEmpty();
-  req.checkBody('rating', 'Is required').notEmpty();
+  req.checkBody('adminRate', 'Is required').notEmpty();
+  req.checkBody('lessonPlansRate', 'Is required').notEmpty();
+  req.checkBody('studentsRate', 'Is required').notEmpty();
+  req.checkBody('schoolCultureRate', 'Is required').notEmpty();
+  req.checkBody('overallRate', 'Is required').notEmpty();
+  req.checkBody('goldList', 'Is required').notEmpty();
+  req.checkBody('redList', 'Is required').notEmpty();
   req.checkBody('notes', 'Is required').notEmpty();
-  req.checkBody('goldlist', 'Is required').notEmpty();
-  req.checkBody('avoidlist', 'Is required').notEmpty();
 
   // run validations
   req.getValidationResult()
@@ -44,10 +48,14 @@ app.post('/assignments', (req, res) => {
           teacher: req.body.teacher,
           grade: req.body.grade,
           date: req.body.date,
-          rating: req.body.rating,
-          notes: req.body.notes,
-          goldlist: req.body.goldlist,
-          avoidlist: req.body.avoidlist
+          adminRate: req.body.adminRate,
+          lessonPlansRate: req.body.lessonPlansRate,
+          studentsRate: req.body.studentsRate,
+          schoolCultureRate: req.body.schoolCultureRate,
+          overallRateoverallRate: req.body.overallRate,
+          goldlist: req.body.goldList,
+          redlist: req.body.redList,
+          notes: req.body.notes
         }).then((assignment) => {
           res.status(201)
           res.json({assignment: assignment})
