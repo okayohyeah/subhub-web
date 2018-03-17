@@ -19,21 +19,21 @@ class AddAssignment extends Component {
               <FormGroup
                 controlId='formBasicText'
               >
-                <ControlLabel className='text-primary'>School Name</ControlLabel>
+                <ControlLabel className='text-primary' id='school'>School Name</ControlLabel>
                 <FormControl type='text' placeholder='Juniper Elementary School' />
               </FormGroup>
 
               <FormGroup
                 controlId='formBasicText'
               >
-                <ControlLabel className='text-primary'>Teacher Name</ControlLabel>{' '}
+                <ControlLabel className='text-primary' id='teacher'>Teacher Name</ControlLabel>
                 <FormControl type='text' placeholder='Bernice Garcia' />
               </FormGroup>
 
               <FormGroup
                 controlId='formsControlsSelect'
               >
-                <ControlLabel className='text-primary'>Grade Level</ControlLabel>{' '}
+                <ControlLabel className='text-primary' id='grade'>Grade Level</ControlLabel>
                 <FormControl componentClass='select'>
                   <option value='select'>Select Grade Level</option>
                   <option value='TK'>Pre-school</option>
@@ -57,16 +57,15 @@ class AddAssignment extends Component {
               <FormGroup
                 controlId='formBasicText'
               >
-                <ControlLabel className='text-primary'>Date of Assignment</ControlLabel>
+                <ControlLabel className='text-primary' id='date'>Date of Assignment</ControlLabel>
                 <FormControl type='integer' placeholder='2018-03-13' />
               </FormGroup>
 
               <FormGroup
                 controlId='formBasicText'
               >
-                <ControlLabel className='text-primary'>Rate the Administration
-                <br/><i>How was check-in and check-out?</i>
-                <br/>1=Horrible 2=Bad 3=Okay 4=Good 5=Awesome<br/>
+                <ControlLabel className='text-primary' id='adminRate'>Rate the School Administration
+                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                 </ControlLabel>
                 <br/><Radio name='radioGroup' type='integer' value='1' inline>
                   1
@@ -88,9 +87,8 @@ class AddAssignment extends Component {
               <FormGroup
                 controlId='formBasicText'
               >
-                <ControlLabel className='text-primary'>Rate the lesson plans
-                <br/><i>Suited for a substitute teacher?</i>
-                <br/>1=Horrible 2=Bad 3=Okay 4=Good 5=Awesome<br/>
+                <ControlLabel className='text-primary' id='lessonPlansRate'>Rate the Lesson Plans
+                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                 </ControlLabel>
                 <br/><Radio name='radioGroup' type='integer' value='1' inline>
                   1
@@ -112,9 +110,8 @@ class AddAssignment extends Component {
               <FormGroup
                 controlId='formBasicText'
               >
-                <ControlLabel className='text-primary'>Rate the students in your classes
-                <br/><i>How were the students?</i>
-                <br/>1=Horrible 2=Bad 3=Okay 4=Good 5=Awesome<br/>
+                <ControlLabel className='text-primary' id='studentsRate'>Rate the Students in Your Classes
+                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                 </ControlLabel>
                 <br/><Radio name='radioGroup' type='integer' value='1' inline>
                   1
@@ -141,9 +138,8 @@ class AddAssignment extends Component {
               <FormGroup
                   controlId='formBasicText'
                 >
-                <ControlLabel className='text-primary'>Rate the school culture
-                <br/><i>How was overall feel of the school?</i>
-                <br/>1=Horrible 2=Bad 3=Okay 4=Good 5=Awesome<br/>
+                <ControlLabel className='text-primary' id='schoolCultureRate'>Rate the School Culture
+                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                 </ControlLabel>
                 <br/><Radio name='radioGroup' type='integer' value='1' inline>
                   1
@@ -165,9 +161,8 @@ class AddAssignment extends Component {
               <FormGroup
                   controlId='formBasicText'
                 >
-                  <ControlLabel className='text-primary'>Rate the assignment overall
-                  <br/><i>How did the whole assignment go?</i>
-                  <br/>1=Horrible 2=Bad 3=Okay 4=Good 5=Awesome<br/>
+                  <ControlLabel className='text-primary' id='overallRate'>Rate the Assignment Overall
+                  <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                   </ControlLabel>
                   <br/><Radio name='radioGroup' type='integer' value='1' inline>
                     1
@@ -189,8 +184,8 @@ class AddAssignment extends Component {
                 <FormGroup
                 controlId='formBasicText'
               >
-                <ControlLabel className='text-warning'>The Gold List
-                <br/><i>I would go back in a heartbeat. Add it to my favorites, the Gold List.</i>
+                <ControlLabel className='text-warning' id='goldList'>The Gold List
+                <br/><i>I would go back in a heartbeat. Add it to my favorites.</i>
                 </ControlLabel>
                 <br/><Radio name='radioGroup' type='boolean' value='true' inline>
                   Yes
@@ -203,8 +198,8 @@ class AddAssignment extends Component {
               <FormGroup
                 controlId='formBasicText'
               >
-                <ControlLabel className='text-danger'>The Red List
-                <br/><i>It was a difficult assignment. Add it to the Red List. I want to remember not to book this again.</i>
+                <ControlLabel className='text-danger' id='redList'>The Red List
+                <br/><i>It was a difficult assignment. Add it to the Red List. I want to remember to avoid this assignment in the future.</i>
                 </ControlLabel>
                 <br/><Radio name='radioGroup' type='boolean' value='true' inline>
                   Yes
@@ -215,7 +210,7 @@ class AddAssignment extends Component {
               </FormGroup>
 
               <FormGroup>
-                <ControlLabel className='text-primary'>Notes about the assignment</ControlLabel>
+                <ControlLabel className='text-primary' id='notes'>Notes about the Assignment</ControlLabel>
                 <FormControl componentClass='textarea' placeholder='Great administration. Helpful and friendly. Lesson plans were solid. Kids were great. Only a few problems. Recess duty. Was allowed to leave without having to stay until 3.' />
               </FormGroup>
 
