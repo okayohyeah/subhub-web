@@ -4,36 +4,36 @@ import { Navbar, Nav, NavItem, FormGroup, FormControl, Button } from 'react-boot
 class NavBar extends Component {
   render() {
     return (
-      <Navbar className='navbar navbar-expand-lg navbar-dark bg-primary '>
+      <Navbar>
         <Navbar.Header>
-          <Navbar.Brand className='navbar-brand nav-header'>
+          <Navbar.Brand>
             <a href='/'>SuhHub</a>
           </Navbar.Brand>
         </Navbar.Header>
         
-        <Nav pullLeft className='collapse navbar-collapse' id='navbarColor02'>
-          <NavItem className='nav-link-color' eventKey={1} href='/'>
+        <Nav pullLeft>
+          <NavItem eventKey={1} href='/'>
             Home
           </NavItem>
-          <NavItem className='nav-link-color' eventKey={2} href='/addassignment'>
+          <NavItem eventKey={2} href='/addassignment'>
             + Add Assignment
           </NavItem>
-          <NavItem className='nav-link-color'  eventKey={3} href='/assignments'>
+          <NavItem eventKey={3} href='/viewassignments'>
             View Assignments
           </NavItem>
-          <NavItem className='nav-link-color'  eventKey={4} href='/goldlist'>
+          <NavItem eventKey={4} href='/goldlist'>
             Gold List
           </NavItem>
-          <NavItem className='nav-link-color'  eventKey={5} href='/avoidlist'>
-            Avoid List
+          <NavItem eventKey={5} href='/redlist'>
+            Red List
           </NavItem>
         </Nav>
-        <Nav pullRight>
-          <FormGroup className='form-inline my-2 my-lg-0'>
-            <FormControl className='form-control mr-sm-2' type='text' placeholder='Search SubHub' />
+        <Navbar.Form pullRight>
+          <FormGroup>
+            <FormControl type='text' placeholder='Search SubHub' />
           </FormGroup>{' '}
-          <Button className='btn btn-secondary my-2 my-sm-0' type='submit'>Submit</Button>
-        </Nav>
+          <Button type='submit'>Submit</Button>
+        </Navbar.Form>
       </Navbar>
     ); 
   }
