@@ -16,7 +16,7 @@ describe('App', ()=> {
 
 // ** assignments ** GET ** ROUTE
 it('Lists assignments', ()=> {
-  return request(app).get('/assignments').then(response => {
+  return request(app).get('/viewassignments').then(response => {
     expect(response.statusCode).toBe(200)
     expect(response.body.assignments[0].school).toBe('Orange Glen Elementary School')
   })
@@ -25,11 +25,11 @@ it('Lists assignments', ()=> {
 // ** assignments ** POST ** ROUTE
 it('Creates assignments', ()=> {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14', 
       adminRate: 3,
       lessonPlansRate: 4,
@@ -44,7 +44,7 @@ it('Creates assignments', ()=> {
       expect(response.statusCode).toBe(201)
       expect(response.body.assignment.school).toBe('Juniper Elementary School')
       expect(response.body.assignment.teacher).toBe('Sam Silas')
-      expect(response.body.assignment.grade).toBe(4),
+      expect(response.body.assignment.grade).toBe('4'),
       expect(response.body.assignment.date).toBe('2018-03-14'),
       expect(response.body.assignment.adminRate).toBe(3),
       expect(response.body.assignment.lessonPlansRate).toBe(4),
@@ -60,10 +60,10 @@ it('Creates assignments', ()=> {
 // ** assignments - SCHOOL ** VALIDATE POST
 it('Validates school when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14', 
       adminRate: 3,
       lessonPlansRate: 4,
@@ -85,10 +85,10 @@ it('Validates school when creating assignment', () => {
 // ** assignments - TEACHER ** VALIDATE POST
 it('Validates teacher when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14', 
       adminRate: 3,
       lessonPlansRate: 4,
@@ -110,7 +110,7 @@ it('Validates teacher when creating assignment', () => {
 // ** assignments - GRADE ** VALIDATE POST
 it('Validates grade when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
@@ -135,11 +135,11 @@ it('Validates grade when creating assignment', () => {
 // ** assignments - DATE ** VALIDATE POST
 it('Validates grade when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       adminRate: 3,
       lessonPlansRate: 4,
       studentsRate: 3,
@@ -160,11 +160,11 @@ it('Validates grade when creating assignment', () => {
 // ** assignments - ADMIN RATING ** VALIDATE POST
 it('Validates admin rating when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14',
       lessonPlansRate: 4,
       studentsRate: 3,
@@ -185,11 +185,11 @@ it('Validates admin rating when creating assignment', () => {
 // ** assignments - LESSON PLANS RATING ** VALIDATE POST
 it('Validates lesson plans rating when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14',
       adminRate: 3,
       studentsRate: 3,
@@ -210,11 +210,11 @@ it('Validates lesson plans rating when creating assignment', () => {
 // ** assignments - STUDENTS RATING ** VALIDATE POST
 it('Validates students rating when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14',
       adminRate: 3,
       lessonPlansRate: 4,
@@ -235,11 +235,11 @@ it('Validates students rating when creating assignment', () => {
 // ** assignments - SCHOOL CULTURE RATING ** VALIDATE POST
 it('Validates school culture rating when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14',
       adminRate: 3,
       lessonPlansRate: 4,
@@ -260,11 +260,11 @@ it('Validates school culture rating when creating assignment', () => {
 // ** assignments - OVERALL RATING ** VALIDATE POST
 it('Validates students rating when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14',
       adminRate: 3,
       studentsRate: 3,
@@ -285,11 +285,11 @@ it('Validates students rating when creating assignment', () => {
 // ** assignments - GOLD LIST ** VALIDATE POST
 it('Validates gold list when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14',
       adminRate: 3,
       studentsRate: 4,
@@ -310,11 +310,11 @@ it('Validates gold list when creating assignment', () => {
 // ** assignments - RED LIST ** VALIDATE POST
 it('Validates red list when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14',
       adminRate: 3,
       studentsRate: 4,
@@ -335,11 +335,11 @@ it('Validates red list when creating assignment', () => {
 // ** assignments - NOTES ** VALIDATE POST
 it('Validates notes when creating assignment', () => {
   return request(app)
-    .post('/assignments')
+    .post('/viewassignments')
     .send({
       school: 'Juniper Elementary School',
       teacher: 'Sam Silas',
-      grade: 4,
+      grade: '4',
       date: '2018-03-14',
       adminRate: 3,
       studentsRate: 4,
