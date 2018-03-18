@@ -12,28 +12,22 @@ class AddAssignment extends Component {
 
         <form id='assignment-form'>
 
-          <h3 className='text-success'>Record your assignment</h3>
+          <h3>Record your assignment</h3>
 
           <Row>
             <Col xs={5} md={5}>
-              <FormGroup
-                controlId='formBasicText'
-              >
-                <ControlLabel className='text-primary' id='school'>School Name</ControlLabel>
+              <FormGroup>
+                <ControlLabel id='school'>School Name</ControlLabel>
                 <FormControl type='text' placeholder='Juniper Elementary School' />
               </FormGroup>
 
-              <FormGroup
-                controlId='formBasicText'
-              >
-                <ControlLabel className='text-primary' id='teacher'>Teacher Name</ControlLabel>
+              <FormGroup>
+                <ControlLabel id='teacher'>Teacher Name</ControlLabel>
                 <FormControl type='text' placeholder='Bernice Garcia' />
               </FormGroup>
 
-              <FormGroup
-                controlId='formsControlsSelect'
-              >
-                <ControlLabel className='text-primary' id='grade'>Grade Level</ControlLabel>
+              <FormGroup>
+                <ControlLabel id='grade'>Grade Level</ControlLabel>
                 <FormControl componentClass='select'>
                   <option value='select'>Select Grade Level</option>
                   <option value='TK'>Pre-school</option>
@@ -54,116 +48,15 @@ class AddAssignment extends Component {
                 </FormControl>
               </FormGroup>
 
-              <FormGroup
-                controlId='formBasicText'
-              >
-                <ControlLabel className='text-primary' id='date'>Date of Assignment</ControlLabel>
-                <FormControl type='integer' placeholder='2018-03-13' />
+              <FormGroup>
+                <ControlLabel id='date'>Date of Assignment</ControlLabel>
+                <FormControl type='date' placeholder='2018-03-13' />
               </FormGroup>
 
-              <FormGroup
-                controlId='formBasicText'
-              >
-                <ControlLabel className='text-primary' id='adminRate'>Rate the School Administration
+              <FormGroup>
+                <ControlLabel id='adminRate'>Rate the School Administration
                 <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                 </ControlLabel>
-                <br/><Radio name='radioGroup' type='integer' value='1' inline>
-                  1
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='2'inline>
-                  2
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='3'inline>
-                  3
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='4'inline>
-                  4
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='5'inline>
-                  5
-                </Radio>
-              </FormGroup>
-
-              <FormGroup
-                controlId='formBasicText'
-              >
-                <ControlLabel className='text-primary' id='lessonPlansRate'>Rate the Lesson Plans
-                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
-                </ControlLabel>
-                <br/><Radio name='radioGroup' type='integer' value='1' inline>
-                  1
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='2'inline>
-                  2
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='3'inline>
-                  3
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='4'inline>
-                  4
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='5'inline>
-                  5
-                </Radio>
-              </FormGroup>
-
-              <FormGroup
-                controlId='formBasicText'
-              >
-                <ControlLabel className='text-primary' id='studentsRate'>Rate the Students in Your Classes
-                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
-                </ControlLabel>
-                <br/><Radio name='radioGroup' type='integer' value='1' inline>
-                  1
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='2'inline>
-                  2
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='3'inline>
-                  3
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='4'inline>
-                  4
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='5'inline>
-                  5
-                </Radio>
-              </FormGroup>
-            </Col>
-            <Col xs={1} md={1}>
-            </Col>
-
-            <Col xs={5} md={5}>
-              <br/>
-              <FormGroup
-                  controlId='formBasicText'
-                >
-                <ControlLabel className='text-primary' id='schoolCultureRate'>Rate the School Culture
-                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
-                </ControlLabel>
-                <br/><Radio name='radioGroup' type='integer' value='1' inline>
-                  1
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='2'inline>
-                  2
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='3'inline>
-                  3
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='4'inline>
-                  4
-                </Radio>{' '}
-                <Radio name='radioGroup' type='integer' value='5'inline>
-                  5
-                </Radio>
-              </FormGroup>
-
-              <FormGroup
-                  controlId='formBasicText'
-                >
-                  <ControlLabel className='text-primary' id='overallRate'>Rate the Assignment Overall
-                  <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
-                  </ControlLabel>
                   <br/><Radio name='radioGroup' type='integer' value='1' inline>
                     1
                   </Radio>{' '}
@@ -179,38 +72,123 @@ class AddAssignment extends Component {
                   <Radio name='radioGroup' type='integer' value='5'inline>
                     5
                   </Radio>
-                </FormGroup>
-
-                <FormGroup
-                controlId='formBasicText'
-              >
-                <ControlLabel className='text-warning' id='goldList'>The Gold List
-                <br/><i>I would go back in a heartbeat. Add it to my favorites.</i>
-                </ControlLabel>
-                <br/><Radio name='radioGroup' type='boolean' value='true' inline>
-                  Yes
-                </Radio>{' '}
-                <Radio name='radioGroup' type='boolean' value='false' inline>
-                  No
-                </Radio>
-              </FormGroup>
-
-              <FormGroup
-                controlId='formBasicText'
-              >
-                <ControlLabel className='text-danger' id='redList'>The Red List
-                <br/><i>It was a difficult assignment. Add it to the Red List. I want to remember to avoid this assignment in the future.</i>
-                </ControlLabel>
-                <br/><Radio name='radioGroup' type='boolean' value='true' inline>
-                  Yes
-                </Radio>{' '}
-                <Radio name='radioGroup' type='boolean' value='false' inline>
-                  No
-                </Radio>
               </FormGroup>
 
               <FormGroup>
-                <ControlLabel className='text-primary' id='notes'>Notes about the Assignment</ControlLabel>
+                <ControlLabel id='lessonPlansRate'>Rate the Lesson Plans
+                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
+                </ControlLabel>
+                  <br/><Radio name='radioGroup' type='integer' value='1' inline>
+                    1
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='2'inline>
+                    2
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='3'inline>
+                    3
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='4'inline>
+                    4
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='5'inline>
+                    5
+                  </Radio>
+              </FormGroup>
+
+              <FormGroup>
+                <ControlLabel id='studentsRate'>Rate the Students in Your Classes
+                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
+                </ControlLabel>
+                  <br/><Radio name='radioGroup' type='integer' value='1' inline>
+                    1
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='2'inline>
+                    2
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='3'inline>
+                    3
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='4'inline>
+                    4
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='5'inline>
+                    5
+                  </Radio>
+              </FormGroup>
+            </Col>
+            <Col xs={1} md={1}>
+            </Col>
+
+            <Col xs={5} md={5}>
+              <br/>
+              <FormGroup>
+                <ControlLabel id='schoolCultureRate'>Rate the School Culture
+                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
+                </ControlLabel>
+                  <br/><Radio name='radioGroup' type='integer' value='1' inline>
+                    1
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='2'inline>
+                    2
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='3'inline>
+                    3
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='4'inline>
+                    4
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='5'inline>
+                    5
+                  </Radio>
+              </FormGroup>
+
+              <FormGroup>
+                <ControlLabel id='overallRate'>Rate the Assignment Overall
+                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
+                </ControlLabel>
+                  <br/><Radio name='radioGroup' type='integer' value='1' inline>
+                    1
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='2'inline>
+                    2
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='3'inline>
+                    3
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='4'inline>
+                    4
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='integer' value='5'inline>
+                    5
+                  </Radio>
+              </FormGroup>
+
+              <FormGroup>
+                <ControlLabel id='goldList'>The Gold List
+                <br/><i>I would go back in a heartbeat. Add it to my favorites.</i>
+                </ControlLabel>
+                  <br/><Radio name='radioGroup' type='boolean' value='true' inline>
+                    Yes
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='boolean' value='false' inline>
+                    No
+                  </Radio>
+              </FormGroup>
+
+              <FormGroup>
+                <ControlLabel id='redList'>The Red List
+                <br/><i>It was a difficult assignment. Add it to the Red List. I want to remember to avoid this assignment in the future.</i>
+                </ControlLabel>
+                  <br/><Radio name='radioGroup' type='boolean' value='true' inline>
+                    Yes
+                  </Radio>{' '}
+                  <Radio name='radioGroup' type='boolean' value='false' inline>
+                    No
+                  </Radio>
+              </FormGroup>
+
+              <FormGroup>
+                <ControlLabel id='notes'>Notes about the Assignment</ControlLabel>
                 <FormControl componentClass='textarea' placeholder='Great administration. Helpful and friendly. Lesson plans were solid. Kids were great. Only a few problems. Recess duty. Was allowed to leave without having to stay until 3.' />
               </FormGroup>
 
