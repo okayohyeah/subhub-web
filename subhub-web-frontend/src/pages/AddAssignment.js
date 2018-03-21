@@ -92,23 +92,30 @@ class AddAssignment extends Component {
               <FormGroup>
                 <ControlLabel id='adminRate'>Rate the School Administration
                 <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
-                </ControlLabel>
-                <FormControl type='integer' name='adminRate'
-                  onChange={this.handleChange.bind(this)}
-                  value={this.state.form.adminRate} />
-                  <br/><Radio name='radioGroup' type='integer' value='1' inline>
+                </ControlLabel><br/>
+                  <Radio name='adminRate' type='integer' value='1' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.adminRate==='1'}>
                     1
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='2'inline>
+                  <Radio name='adminRate' type='integer' value='2' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.adminRate==='2'}>
                     2
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='3'inline>
+                  <Radio name='adminRate' type='integer' value='3' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.adminRate==='3'}>
                     3
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='4'inline>
+                  <Radio name='adminRate' type='integer' value='4' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.adminRate==='4'}>
                     4
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='5'inline>
+                  <Radio name='adminRate' type='integer' value='5' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.adminRate==='5'}>
                     5
                   </Radio>
               </FormGroup>
@@ -116,23 +123,30 @@ class AddAssignment extends Component {
               <FormGroup>
                 <ControlLabel id='lessonPlansRate'>Rate the Lesson Plans
                 <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
-                </ControlLabel>
-                <FormControl type='integer' name='lessonPlansRate'
-                  onChange={this.handleChange.bind(this)}
-                  value={this.state.form.lessonPlansRate} />
-                  <br/><Radio name='radioGroup' type='integer' value='1' inline>
+                </ControlLabel><br/>
+                  <Radio name='lessonPlansRate' type='integer' value='1' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.lessonPlansRate==='1'}>
                     1
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='2'inline>
+                  <Radio name='lessonPlansRate' type='integer' value='2' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.lessonPlansRate==='2'}>
                     2
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='3'inline>
+                  <Radio name='lessonPlansRate' type='integer' value='3' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.lessonPlansRate==='3'}>
                     3
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='4'inline>
+                  <Radio name='lessonPlansRate' type='integer' value='4' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.lessonPlansRate==='4'}>
                     4
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='5'inline>
+                  <Radio name='lessonPlansRate' type='integer' value='5' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.lessonPlansRate==='5'}>
                     5
                   </Radio>
               </FormGroup>
@@ -140,27 +154,35 @@ class AddAssignment extends Component {
               <FormGroup>
                 <ControlLabel id='studentsRate'>Rate the Students in Your Classes
                 <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
-                </ControlLabel>
-                <FormControl type='integer' name='studentsRate'
-                  onChange={this.handleChange.bind(this)}
-                  value={this.state.form.studentsRate} />
-                  <br/><Radio name='radioGroup' type='integer' value='1' inline>
+                </ControlLabel><br/>
+                  <Radio name='studentsRate' type='integer' value='1' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.studentsRate==='1'}>
                     1
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='2'inline>
+                  <Radio name='studentsRate' type='integer' value='2' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.studentsRate==='2'}>
                     2
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='3'inline>
+                  <Radio name='studentsRate' type='integer' value='3' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.studentsRate==='3'}>
                     3
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='4'inline>
+                  <Radio name='studentsRate' type='integer' value='4' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.studentsRate==='4'}>
                     4
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='5'inline>
+                  <Radio name='studentsRate' type='integer' value='5' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.studentsRate==='5'}>
                     5
                   </Radio>
               </FormGroup>
             </Col>
+
             <Col xs={1} md={1}>
             </Col>
 
@@ -169,62 +191,77 @@ class AddAssignment extends Component {
               <FormGroup>
                 <ControlLabel id='schoolCultureRate'>Rate the School Culture
                 <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
-                </ControlLabel>
-                <FormControl type='integer' name='schoolCultureRate'
-                  onChange={this.handleChange.bind(this)}
-                  value={this.state.form.schoolCultureRate} />
-                  <br/><Radio name='radioGroup' type='integer' value='1' inline>
+                </ControlLabel><br/>
+                  <Radio name='schoolCultureRate' type='integer' value='1' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.schoolCultureRate==='1'}>
                     1
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='2'inline>
+                  <Radio name='schoolCultureRate' type='integer' value='2' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.schoolCultureRate==='2'}>
                     2
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='3'inline>
+                  <Radio name='schoolCultureRate' type='integer' value='3' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.schoolCultureRate==='3'}>
                     3
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='4'inline>
+                  <Radio name='schoolCultureRate' type='integer' value='4' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.schoolCultureRate==='4'}>
                     4
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='integer' value='5'inline>
+                  <Radio name='schoolCultureRate' type='integer' value='5' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.schoolCultureRate==='5'}>
                     5
                   </Radio>
               </FormGroup>
 
               <FormGroup>
-                  <ControlLabel id='overallRate'>Rate the Assignment Overall
-                  <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
-                  </ControlLabel>
-                  <FormControl type='integer' name='overallRate'
-                  onChange={this.handleChange.bind(this)}
-                  value={this.state.form.overallRate} />
-                    <br/><Radio name='radioGroup' type='integer' value='1' inline>
-                      1
-                    </Radio>{' '}
-                    <Radio name='radioGroup' type='integer' value='2'inline>
-                      2
-                    </Radio>{' '}
-                    <Radio name='radioGroup' type='integer' value='3'inline>
-                      3
-                    </Radio>{' '}
-                    <Radio name='radioGroup' type='integer' value='4'inline>
-                      4
-                    </Radio>{' '}
-                    <Radio name='radioGroup' type='integer' value='5'inline>
-                      5
-                    </Radio>
-                </FormGroup>
+                <ControlLabel id='overallRate'>Rate the Assignment Overall
+                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
+                </ControlLabel><br/>
+                  <Radio name='overallRate' type='integer' value='1' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.overallRate==='1'}>
+                    1
+                  </Radio>{' '}
+                  <Radio name='overallRate' type='integer' value='2' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.overallRate==='2'}>
+                    2
+                  </Radio>{' '}
+                  <Radio name='overallRate' type='integer' value='3' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.overallRate==='3'}>
+                    3
+                  </Radio>{' '}
+                  <Radio name='overallRate' type='integer' value='4' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.overallRate==='4'}>
+                    4
+                  </Radio>{' '}
+                  <Radio name='overallRate' type='integer' value='5' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.overallRate==='5'}>
+                    5
+                  </Radio>
+              </FormGroup>
 
-                <FormGroup>
+              <FormGroup>
                 <ControlLabel id='goldList'>The Gold List
                 <br/><i>I would go back in a heartbeat. Add it to my favorites.</i>
-                </ControlLabel>
-                <FormControl type='boolean' name='goldList'
-                  onChange={this.handleChange.bind(this)}
-                  value={this.state.form.goldList} />
-                  <br/><Radio name='radioGroup' type='boolean' value='true' inline>
+                </ControlLabel><br/>
+                  <Radio name='goldList' type='boolean' value='true' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.goldList==='true'}>
                     Yes
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='boolean' value='false' inline>
+                  <Radio name='goldList' type='boolean' value='false' inline
+                    onChange={this.handleChange.bind(this)}
+                    defaultChecked={this.state.form.goldList==='false'}>
                     No
                   </Radio>
               </FormGroup>
@@ -232,14 +269,15 @@ class AddAssignment extends Component {
               <FormGroup>
                 <ControlLabel id='redList'>The Red List
                 <br/><i>It was a difficult assignment. Add it to the Red List. I want to remember to avoid this assignment in the future.</i>
-                </ControlLabel>
-                <FormControl type='boolean' name='redList'
+                </ControlLabel><br/>
+                  <Radio name='redList' type='boolean' value='true' inline
                   onChange={this.handleChange.bind(this)}
-                  value={this.state.form.redList} />
-                  <br/><Radio name='radioGroup' type='boolean' value='true' inline>
+                  defaultChecked={this.state.form.redList==='true'}>
                     Yes
                   </Radio>{' '}
-                  <Radio name='radioGroup' type='boolean' value='false' inline>
+                  <Radio name='redList' type='boolean' value='false' inline
+                  onChange={this.handleChange.bind(this)}
+                  defaultChecked={this.state.form.redList==='false'}>
                     No
                   </Radio>
               </FormGroup>
