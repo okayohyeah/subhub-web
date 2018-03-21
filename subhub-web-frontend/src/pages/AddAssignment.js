@@ -16,8 +16,8 @@ class AddAssignment extends Component {
         studentsRate: '',
         schoolCultureRate: '',
         overallRate: '',
-        goldList: false,
-        redList: false,
+        goldList: '',
+        redList: '',
         notes: ''
       }
     }
@@ -254,14 +254,14 @@ class AddAssignment extends Component {
                 <ControlLabel id='goldList'>The Gold List
                 <br/><i>I would go back in a heartbeat. Add it to my favorites.</i>
                 </ControlLabel><br/>
-                  <Radio name='goldList' type='boolean' value='true' inline
+                  <Radio name='goldList' type='text' value='Yes' inline
                     onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.goldList==='true'}>
+                    defaultChecked={this.state.form.goldList==='Yes'}>
                     Yes
                   </Radio>{' '}
-                  <Radio name='goldList' type='boolean' value='false' inline
+                  <Radio name='goldList' type='text' value='No' inline
                     onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.goldList==='false'}>
+                    defaultChecked={this.state.form.goldList==='No'}>
                     No
                   </Radio>
               </FormGroup>
@@ -270,14 +270,14 @@ class AddAssignment extends Component {
                 <ControlLabel id='redList'>The Red List
                 <br/><i>It was a difficult assignment. Add it to the Red List. I want to remember to avoid this assignment in the future.</i>
                 </ControlLabel><br/>
-                  <Radio name='redList' type='boolean' value='true' inline
+                  <Radio name='redList' type='text' value='Yes' inline
                   onChange={this.handleChange.bind(this)}
-                  defaultChecked={this.state.form.redList==='true'}>
+                  defaultChecked={this.state.form.redList==='Yes'}>
                     Yes
                   </Radio>{' '}
-                  <Radio name='redList' type='boolean' value='false' inline
+                  <Radio name='redList' type='text' value='No' inline
                   onChange={this.handleChange.bind(this)}
-                  defaultChecked={this.state.form.redList==='false'}>
+                  defaultChecked={this.state.form.redList==='No'}>
                     No
                   </Radio>
               </FormGroup>

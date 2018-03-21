@@ -15,8 +15,8 @@ const assignments = [
     studentsRate: 5,
     schoolCultureRate: 4,
     overallRate: 5,
-    goldList: true,
-    redList: false,
+    goldList: 'Yes',
+    redList: 'No',
     notes: 'Best assignment ever. Solid!'
   },
   {
@@ -30,8 +30,8 @@ const assignments = [
     studentsRate: 4,
     schoolCultureRate: 3,
     overallRate: 4,
-    goldList: false,
-    redList: false,
+    goldList: 'No',
+    redList: 'No',
     notes: 'Just another day with some kids.'
   },
   {
@@ -45,8 +45,8 @@ const assignments = [
     studentsRate: 1,
     schoolCultureRate: 2,
     overallRate: 1,
-    goldList: false,
-    redList: true,
+    goldList: 'No',
+    redList: 'Yes',
     notes: 'Never Again! Worst school, class, students. Felt bad when I walked in.'
   }
 ]
@@ -126,13 +126,13 @@ it('Renders the overall rating', () => {
 it('Renders the gold list', () => {
   const component = mount(<ViewAssignments assignments={assignments} />);
   const goldList = component.find('h4 > .goldList').first();
-  expect(goldList.text()).toBe('Gold List: ');
+  expect(goldList.text()).toBe('Gold List: Yes');
 });
 
 it('Renders the red list', () => {
   const component = mount(<ViewAssignments assignments={assignments} />);
   const redList = component.find('h4 > .redList').first();
-  expect(redList.text()).toBe('Red List: ');
+  expect(redList.text()).toBe('Red List: No');
 });
 
 it('Renders the notes', () => {

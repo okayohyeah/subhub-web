@@ -24,8 +24,8 @@ class App extends Component {
           studentsRate: 5,
           schoolCultureRate: 4,
           overallRate: 5,
-          goldList: true,
-          redList: false,
+          goldList: 'Yes',
+          redList: 'No',
           notes: 'Best assignment ever. Solid!'
         },
         {
@@ -39,8 +39,8 @@ class App extends Component {
           studentsRate: 4,
           schoolCultureRate: 3,
           overallRate: 4,
-          goldList: false,
-          redList: false,
+          goldList: 'No',
+          redList: 'No',
           notes: 'Just another day with some kids.'
         },
         {
@@ -54,8 +54,8 @@ class App extends Component {
           studentsRate: 1,
           schoolCultureRate: 2,
           overallRate: 1,
-          goldList: false,
-          redList: true,
+          goldList: 'No',
+          redList: 'Yes',
           notes: 'Never Again! Worst school, class, students. Felt bad when I walked in.'
         },
       ]
