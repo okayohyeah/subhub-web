@@ -6,6 +6,14 @@ A place for substitute teachers to track and organize assignments.
 * A way to filter past assignments quickly because once assignments are posted, one has to decide immediately. 
 * This app offsets the time pressure.
 
+## Front-End Technologies Used:
+* React
+* React-Bootstrap
+* Bootstrap
+* JavaScript
+* Node
+* Enzyme
+
 ## Back-End - Technologies Used:
 * Express
 * Body-Parser
