@@ -15,13 +15,31 @@ module.exports = {
         type: Sequelize.STRING
       },
       grade: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
-      rating: {
+      adminRate: {
         type: Sequelize.INTEGER
+      },
+      lessonPlansRate: {
+        type: Sequelize.INTEGER
+      },
+      studentsRate: {
+        type: Sequelize.INTEGER
+      },
+      schoolCultureRate: {
+        type: Sequelize.INTEGER
+      },
+      overallRate: {
+        type: Sequelize.INTEGER
+      },
+      goldList: {
+        type: Sequelize.STRING
+      },
+      redList: {
+        type: Sequelize.STRING
       },
       notes: {
         type: Sequelize.TEXT

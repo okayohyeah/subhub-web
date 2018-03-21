@@ -15,14 +15,14 @@ app.get('/', (req, res) => {
 });
 
 // **assignments ** GET ROUTE
-app.get('/assignments', (req, res) => {
+app.get('/viewassignments', (req, res) => {
   Assignment.findAll().then((assignments) => {
     res.json({assignments: assignments});
   })
 });
 
 // **assignments ** POST ROUTE 
-app.post('/assignments', (req, res) => {
+app.post('/viewassignments', (req, res) => {
 
   // setup validation check for all params
   req.checkBody('school', 'Is required').notEmpty();
