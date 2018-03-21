@@ -21,18 +21,17 @@ class ViewAssignments extends Component {
                           <span className='school'>{assignment.school}</span><br/>
                           <small className='teacher'>{assignment.teacher}</small><br/>
                           <small className='grade'>Grade: {assignment.grade}</small><br/>
-                          <small className='date'>{assignment.date}</small>
+                          <small className='date'>{assignment.date}</small><br/>
+                          <small className='adminRate'>Admin Rating: {assignment.adminRate}</small><br/>
+                          <small className='lessonPlansRate'>Lesson Plans Rating: {assignment.lessonPlansRate}</small><br/>
+                          <small className='studentsRate'>Students Rating: {assignment.studentsRate}</small><br/>
+                          <small className='schoolCultureRate'>School Culture Rating: {assignment.schoolCultureRate}</small><br/>
+                          <small className='overallRate'>Overall Rating: {assignment.overallRate}</small><br/>
+                          <small className='goldList'>Gold List: {assignment.goldList}</small><br/>
+                          <small className='redList'>Red List: {assignment.redList}</small><br/>
+                          <small className='notes'>Notes: {assignment.notes}</small>
                         </h4>
                       }>
-                      <span className='adminRate'>Admin Rating: {assignment.adminRate}</span><br/>
-                      <span className='lessonPlansRate'>Lesson Plans Rating: {assignment.lessonPlansRate}</span><br/>
-                      <span className='studentsRate'>Students Rating: {assignment.studentsRate}</span><br/>
-                      <span className='schoolCultureRate'>School Culture Rating: {assignment.schoolCultureRate}</span><br/>
-                      <span className='overallRate'>Overall Rating: {assignment.overallRate}</span><br/>
-                      <span className='goldList'>Gold List: {assignment.goldList}</span><br/>
-                      <span className='redList'>Red List: {assignment.redList}</span><br/>
-                      <span className='notes'>Notes: {assignment.notes}</span>
-
                     </ListGroupItem>
                   )
                 })}
