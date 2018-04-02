@@ -69,3 +69,30 @@ it('has a notes input', () => {
   const component = mount(<AddAssignment />);
   expect(component.find('#notes').text()).toBe('Notes about the Assignment');
 });
+
+it('calls submitHandler on submit', ()=>{
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  component.find('button#submit').simulate('click', {button: 0});
+  expect(mockSubmitHandler.mock.calls.length).toBe(1);
+});
+
+it('passes values on submit', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  component.find('input[name="school"]').simulate('change', {target: {value: 'Juniper Elementary School', name: 'school'}});
+  component.find('input[name="teacher"]').simulate('change', {target: {value: 'John Miller', name: 'teacher'}});
+  component.find('select[name="grade"]').simulate('change', {target: {value: '3', name: 'grade'}});
+  component.find('input[name="date"]').simulate('change', {target: {value: '04-11-2016', name: 'date'}});
+  component.find('textarea[name="notes"]').simulate('change', {target: {value: 'Good class. Stayed on task mostly. Good plans, easy to follow.', name: 'notes'}});
+  component.find('button#submit').simulate('click', {button: 0});
+
+  const submittedValues = mockSubmitHandler.mock.calls[0][0];
+
+  expect(submittedValues['school']).toBe('Juniper Elementary School');
+  expect(submittedValues['teacher']).toBe('John Miller');
+  expect(submittedValues['grade']).toBe('3');
+  expect(submittedValues['date']).toBe('04-11-2016');
+  expect(submittedValues['notes']).toBe('Good class. Stayed on task mostly. Good plans, easy to follow.');
+});
+

@@ -24,10 +24,14 @@ class AddAssignment extends Component {
   }
 
   handleChange(event){
-  const formState = Object.assign({}, this.state.form)
-  formState[event.target.name] = event.target.value
-  this.setState({form: formState})
-}
+    const formState = Object.assign({}, this.state.form);
+    formState[event.target.name] = event.target.value;
+    this.setState({form: formState});
+  }
+
+  handleSubmit() {
+    this.props.onSubmit(this.state.form);
+  }
 
   render() {
     return (
@@ -296,7 +300,7 @@ class AddAssignment extends Component {
             <Col xs={5} md={5}>
             </Col>
             <Col xs={2} md={2}>
-              <Button type='submit' className='btn btn-secondary'>Submit Assignment</Button>
+              <Button type='submit' className='btn btn-secondary' id='submit' onClick={this.handleSubmit.bind(this)}>Submit Assignment</Button>
             </Col>
           </Row>
 
