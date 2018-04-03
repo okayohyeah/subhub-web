@@ -86,7 +86,7 @@ class App extends Component {
           <Route exact path='/addassignment' render={props => (
             <div>
               <NavBar />
-              <AddAssignment submitHandler={this.addAssignmentSubmit.bind(this)}/>
+              <AddAssignment />
             </div>
           )} />   
 

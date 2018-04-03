@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Grid, PageHeader, Row, Col, FormGroup, ControlLabel, FormControl, Radio, Button } from 'react-bootstrap';
+import { Grid, PageHeader, Row, Col, FormGroup, ControlLabel, FormControl, Checkbox, Button } from 'react-bootstrap';
+
+var Rating = require('react-rating')
 
 class AddAssignment extends Component {
   
@@ -11,13 +13,13 @@ class AddAssignment extends Component {
         teacher: '',
         grade: '',
         date: '',
-        adminRate: '',
+        adminRate: 0,
         lessonPlansRate: '',
         studentsRate: '',
         schoolCultureRate: '',
         overallRate: '',
-        goldList: '',
-        redList: '',
+        goldList: 'off',
+        redList: 'off',
         notes: ''
       }
     }
@@ -27,6 +29,7 @@ class AddAssignment extends Component {
     const formState = Object.assign({}, this.state.form);
     formState[event.target.name] = event.target.value;
     this.setState({form: formState});
+    console.log(formState);
   }
 
   handleSubmit() {
@@ -95,95 +98,36 @@ class AddAssignment extends Component {
 
               <FormGroup>
                 <ControlLabel id='adminRate'>Rate the School Administration
-                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                 </ControlLabel><br/>
-                  <Radio name='adminRate' type='integer' value='1' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.adminRate==='1'}>
-                    1
-                  </Radio>{' '}
-                  <Radio name='adminRate' type='integer' value='2' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.adminRate==='2'}>
-                    2
-                  </Radio>{' '}
-                  <Radio name='adminRate' type='integer' value='3' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.adminRate==='3'}>
-                    3
-                  </Radio>{' '}
-                  <Radio name='adminRate' type='integer' value='4' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.adminRate==='4'}>
-                    4
-                  </Radio>{' '}
-                  <Radio name='adminRate' type='integer' value='5' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.adminRate==='5'}>
-                    5
-                  </Radio>
+                <Rating 
+                  name='adminRate'
+                  emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
+                  fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
+                  onChange={this.handleChange.bind(this)}
+                  value={this.state.form.adminRate}/>
+                  
               </FormGroup>
 
               <FormGroup>
                 <ControlLabel id='lessonPlansRate'>Rate the Lesson Plans
-                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                 </ControlLabel><br/>
-                  <Radio name='lessonPlansRate' type='integer' value='1' inline
+                  <Rating 
+                    name='lessonPlansRate'
+                    emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
+                    fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
                     onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.lessonPlansRate==='1'}>
-                    1
-                  </Radio>{' '}
-                  <Radio name='lessonPlansRate' type='integer' value='2' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.lessonPlansRate==='2'}>
-                    2
-                  </Radio>{' '}
-                  <Radio name='lessonPlansRate' type='integer' value='3' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.lessonPlansRate==='3'}>
-                    3
-                  </Radio>{' '}
-                  <Radio name='lessonPlansRate' type='integer' value='4' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.lessonPlansRate==='4'}>
-                    4
-                  </Radio>{' '}
-                  <Radio name='lessonPlansRate' type='integer' value='5' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.lessonPlansRate==='5'}>
-                    5
-                  </Radio>
+                    value={this.state.form.lessonPlansRate}/>
               </FormGroup>
 
               <FormGroup>
                 <ControlLabel id='studentsRate'>Rate the Students in Your Classes
-                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                 </ControlLabel><br/>
-                  <Radio name='studentsRate' type='integer' value='1' inline
+                  <Rating 
+                    name='studentsRate' 
+                    emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
+                    fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
                     onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.studentsRate==='1'}>
-                    1
-                  </Radio>{' '}
-                  <Radio name='studentsRate' type='integer' value='2' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.studentsRate==='2'}>
-                    2
-                  </Radio>{' '}
-                  <Radio name='studentsRate' type='integer' value='3' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.studentsRate==='3'}>
-                    3
-                  </Radio>{' '}
-                  <Radio name='studentsRate' type='integer' value='4' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.studentsRate==='4'}>
-                    4
-                  </Radio>{' '}
-                  <Radio name='studentsRate' type='integer' value='5' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.studentsRate==='5'}>
-                    5
-                  </Radio>
+                    value={this.state.form.studentsRate}/>
               </FormGroup>
             </Col>
 
@@ -194,96 +138,46 @@ class AddAssignment extends Component {
               <br/>
               <FormGroup>
                 <ControlLabel id='schoolCultureRate'>Rate the School Culture
-                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                 </ControlLabel><br/>
-                  <Radio name='schoolCultureRate' type='integer' value='1' inline
+                  <Rating 
+                    name='schoolCultureRate'
+                    emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
+                    fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
                     onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.schoolCultureRate==='1'}>
-                    1
-                  </Radio>{' '}
-                  <Radio name='schoolCultureRate' type='integer' value='2' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.schoolCultureRate==='2'}>
-                    2
-                  </Radio>{' '}
-                  <Radio name='schoolCultureRate' type='integer' value='3' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.schoolCultureRate==='3'}>
-                    3
-                  </Radio>{' '}
-                  <Radio name='schoolCultureRate' type='integer' value='4' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.schoolCultureRate==='4'}>
-                    4
-                  </Radio>{' '}
-                  <Radio name='schoolCultureRate' type='integer' value='5' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.schoolCultureRate==='5'}>
-                    5
-                  </Radio>
+                    value={this.state.form.schoolCultureRate}/>
               </FormGroup>
 
               <FormGroup>
                 <ControlLabel id='overallRate'>Rate the Assignment Overall
-                <br/>1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome<br/>
                 </ControlLabel><br/>
-                  <Radio name='overallRate' type='integer' value='1' inline
+                  <Rating 
+                    name='overallRate'
+                    emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
+                    fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
                     onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.overallRate==='1'}>
-                    1
-                  </Radio>{' '}
-                  <Radio name='overallRate' type='integer' value='2' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.overallRate==='2'}>
-                    2
-                  </Radio>{' '}
-                  <Radio name='overallRate' type='integer' value='3' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.overallRate==='3'}>
-                    3
-                  </Radio>{' '}
-                  <Radio name='overallRate' type='integer' value='4' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.overallRate==='4'}>
-                    4
-                  </Radio>{' '}
-                  <Radio name='overallRate' type='integer' value='5' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.overallRate==='5'}>
-                    5
-                  </Radio>
+                    value={this.state.form.overallRate}/>
               </FormGroup>
 
               <FormGroup>
                 <ControlLabel id='goldList'>The Gold List
                 <br/><i>I would go back in a heartbeat. Add it to my favorites.</i>
                 </ControlLabel><br/>
-                  <Radio name='goldList' type='text' value='Yes' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.goldList==='Yes'}>
-                    Yes
-                  </Radio>{' '}
-                  <Radio name='goldList' type='text' value='No' inline
-                    onChange={this.handleChange.bind(this)}
-                    defaultChecked={this.state.form.goldList==='No'}>
-                    No
-                  </Radio>
+                  <Checkbox
+                    name='goldList'
+                    checked={this.state.goldList}
+                    onChange={this.handleChange.bind(this)}>Add to Gold List
+                  </Checkbox>
               </FormGroup>
 
               <FormGroup>
                 <ControlLabel id='redList'>The Red List
                 <br/><i>It was a difficult assignment. Add it to the Red List. I want to remember to avoid this assignment in the future.</i>
                 </ControlLabel><br/>
-                  <Radio name='redList' type='text' value='Yes' inline
-                  onChange={this.handleChange.bind(this)}
-                  defaultChecked={this.state.form.redList==='Yes'}>
-                    Yes
-                  </Radio>{' '}
-                  <Radio name='redList' type='text' value='No' inline
-                  onChange={this.handleChange.bind(this)}
-                  defaultChecked={this.state.form.redList==='No'}>
-                    No
-                  </Radio>
+                  <Checkbox
+                    name='redList'
+                    checked={this.state.redList}
+                    onChange={this.handleChange.bind(this)}>Add to Red List
+                  </Checkbox>
               </FormGroup>
 
               <FormGroup>
