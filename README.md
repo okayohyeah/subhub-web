@@ -2,9 +2,9 @@
 ## In Development
 ## React App
 A place for substitute teachers to track and organize assignments. 
-* Record assignments with personal notes, which would enhance your ability to do your job.
+* Record assignments with personal notes.
 * Rate the assignment by categories: administration, lesson plans, students, school culture and overall.
-* Add positive assignments onto the Gold List and add negative assignments on the Red List.
+* Add positive assignments to the Gold List and add negative assignments to the Red List.
 * A way to filter past assignments quickly because once assignments are posted, one has to decide immediately. 
 * This app offsets the time pressure.
 
