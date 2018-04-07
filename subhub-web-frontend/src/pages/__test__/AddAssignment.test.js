@@ -31,28 +31,28 @@ it('has a date of assignment input', () => {
 
 it('has an admin rating input', () => {
   const component = mount(<AddAssignment />);
-  expect(component.find('#adminRate').text()).toBe('Rate the School Administration1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome');
+  expect(component.find('#adminRate').text()).toBe('Rate the School Administration');
 });
 
 
 it('has a lesson plans rating input', () => {
   const component = mount(<AddAssignment />);
-  expect(component.find('#lessonPlansRate').text()).toBe('Rate the Lesson Plans1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome');
+  expect(component.find('#lessonPlansRate').text()).toBe('Rate the Lesson Plans');
 });
 
 it('has a students rating input', () => {
   const component = mount(<AddAssignment />);
-  expect(component.find('#studentsRate').text()).toBe('Rate the Students in Your Classes1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome');
+  expect(component.find('#studentsRate').text()).toBe('Rate the Students in Your Classes');
 });
 
 it('has a school culture rating input', () => {
   const component = mount(<AddAssignment />);
-  expect(component.find('#schoolCultureRate').text()).toBe('Rate the School Culture1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome');
+  expect(component.find('#schoolCultureRate').text()).toBe('Rate the School Culture');
 });
 
 it('has an overall rating input', () => {
   const component = mount(<AddAssignment />);
-  expect(component.find('#overallRate').text()).toBe('Rate the Assignment Overall1=Avoid 2=Not Great 3=Okay 4=Good 5=Awesome');
+  expect(component.find('#overallRate').text()).toBe('Rate the Assignment Overall');
 });
 
 it('has a gold list input', () => {
@@ -84,6 +84,8 @@ it('passes values on submit', () => {
   component.find('input[name="teacher"]').simulate('change', {target: {value: 'John Miller', name: 'teacher'}});
   component.find('select[name="grade"]').simulate('change', {target: {value: '3', name: 'grade'}});
   component.find('input[name="date"]').simulate('change', {target: {value: '04-11-2016', name: 'date'}});
+  component.find('input[name="goldList"]').simulate('change', {target: {value: 'on', name: 'goldList'}});  
+  component.find('input[name="redList"]').simulate('change', {target: {value: 'off', name: 'redList'}});  
   component.find('textarea[name="notes"]').simulate('change', {target: {value: 'Good class. Stayed on task mostly. Good plans, easy to follow.', name: 'notes'}});
   component.find('button#submit').simulate('click', {button: 0});
 
@@ -93,6 +95,11 @@ it('passes values on submit', () => {
   expect(submittedValues['teacher']).toBe('John Miller');
   expect(submittedValues['grade']).toBe('3');
   expect(submittedValues['date']).toBe('04-11-2016');
+
+  expect(submittedValues['goldList']).toBe('on');
+  expect(submittedValues['redList']).toBe('off');
   expect(submittedValues['notes']).toBe('Good class. Stayed on task mostly. Good plans, easy to follow.');
 });
+
+
 
