@@ -13,17 +13,15 @@ class AddAssignment extends Component {
         teacher: '',
         grade: '',
         date: '',
-        adminRate: 0,
-        lessonPlansRate: 0,
-        studentsRate: 0,
-        schoolCultureRate: 0,
-        overallRate: 0,
+        adminRate: 1,
+        lessonPlansRate: 1,
+        studentsRate: 1,
+        schoolCultureRate: 1,
+        overallRate: 1,
         goldList: 'off',
         redList: 'off',
         notes: ''
-      },
-      //set initial value for rating
-      rating: 5,
+      }
     }
   }
 
@@ -38,11 +36,35 @@ class AddAssignment extends Component {
     this.props.onSubmit(this.state.form);
   }
 
-  handleRatingChange = (rating) => {
+  handleAdminRatingChange = (rating) => {
     // spread operator copies state
-    this.setState({...this.state, rating: rating});
+    this.setState({...this.state, form: {...this.state.form, adminRate: rating}});
     //check rating
-    console.log('rating', rating);
+    console.log('admin rating', rating);
+  }
+
+  handleLessonPlansRatingChange = (rating) => {
+    this.setState({...this.state, form: {...this.state.form, lessonPlansRate: rating}});
+    //check rating
+    console.log('lesson plans rating', rating);
+  }
+
+  handleStudentsRatingChange = (rating) => {
+    this.setState({...this.state, form: {...this.state.form, studentsRate: rating}});
+    //check rating
+    console.log('students rating', rating);
+  }
+
+  handleSchoolCultureRatingChange = (rating) => {
+    this.setState({...this.state, form: {...this.state.form, schoolCultureRate: rating}});
+    //check rating
+    console.log('school culture rating', rating);
+  }
+
+  handleOverallRatingChange = (rating) => {
+    this.setState({...this.state, form: {...this.state.form, overallRate: rating}});
+    //check rating
+    console.log('overall rating', rating);
   }
 
   render() {
@@ -114,8 +136,8 @@ class AddAssignment extends Component {
                   name='adminRate'
                   emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                   fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
-                  initialRating={this.state.rating}
-                  onChange={this.handleRatingChange}
+                  initialRating={this.state.form.adminRate}
+                  onChange={this.handleAdminRatingChange}
                   />
                   
               </FormGroup>
@@ -127,8 +149,8 @@ class AddAssignment extends Component {
                     name='lessonPlansRate'
                     emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                     fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
-                    initialRating={this.state.rating}
-                    onChange={this.handleRatingChange}
+                    initialRating={this.state.form.lessonPlansRate}
+                    onChange={this.handleLessonPlansRatingChange}
                   />
               </FormGroup>
 
@@ -139,8 +161,9 @@ class AddAssignment extends Component {
                     name='studentsRate' 
                     emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                     fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
-                    //onChange={this.handleChange.bind(this)}
-                    value={this.state.form.studentsRate}/>
+                    initialRating={this.state.form.studentsRate}
+                    onChange={this.handleStudentsRatingChange}
+                  />
               </FormGroup>
             </Col>
 
@@ -156,8 +179,9 @@ class AddAssignment extends Component {
                     name='schoolCultureRate'
                     emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                     fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
-                    //onChange={this.handleChange.bind(this)}
-                    value={this.state.form.schoolCultureRate}/>
+                    initialRating={this.state.form.schoolCultureRate}
+                    onChange={this.handleSchoolCultureRatingChange}
+                  />
               </FormGroup>
 
               <FormGroup>
@@ -167,8 +191,9 @@ class AddAssignment extends Component {
                     name='overallRate'
                     emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                     fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
-                    //onChange={this.handleChange.bind(this)}
-                    value={this.state.form.overallRate}/>
+                    initialRating={this.state.form.overallRate}
+                    onChange={this.handleOverallRatingChange}
+                  />
               </FormGroup>
 
               <FormGroup>
