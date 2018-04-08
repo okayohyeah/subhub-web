@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, PageHeader, Row, Col, FormGroup, ControlLabel, FormControl, Checkbox, Button } from 'react-bootstrap';
+import { Grid, PageHeader, Row, Col, FormGroup, ControlLabel, FormControl, Checkbox, Button, HelpBlock, Alert } from 'react-bootstrap';
 
 var Rating = require('react-rating')
 
@@ -13,11 +13,11 @@ class AddAssignment extends Component {
         teacher: '',
         grade: '',
         date: '',
-        adminRate: 1,
-        lessonPlansRate: 1,
-        studentsRate: 1,
-        schoolCultureRate: 1,
-        overallRate: 1,
+        adminRate: 0,
+        lessonPlansRate: 0,
+        studentsRate: 0,
+        schoolCultureRate: 0,
+        overallRate: 0,
         goldList: 'off',
         redList: 'off',
         notes: ''
@@ -67,6 +67,17 @@ class AddAssignment extends Component {
     console.log('overall rating', rating);
   }
 
+  errorsFor(attribute) {
+    var errorString='';
+    if(this.props.errors) {
+      const errors = this.props.errors.filter(error => error.param === attribute);
+      if(errors) {
+        errorString = errors.map(error => error.msg).join(', ')
+      }
+    }
+    return errorString === '' ? null : errorString;
+  }
+
   render() {
     return (
 
@@ -80,23 +91,40 @@ class AddAssignment extends Component {
           <h3>Record your assignment</h3>
 
           <Row>
+            <Col xs={12} md={8}>
+              {this.props.errors && 
+                <Alert bsStyle='danger'>
+                  We are missing input in the form. Please check each field and submit again.
+                </Alert>
+              }
+            </Col>
+          </Row>
+          
+          <Row>
             <Col xs={5} md={5}>
-              <FormGroup>
+              <FormGroup
+                id='school-form-group'
+                validationState={this.errorsFor('school') && 'error'}>
                 <ControlLabel id='school'>School Name</ControlLabel>
                 <FormControl type='text' name='school' placeholder='Juniper Elementary School' 
                   onChange={this.handleChange.bind(this)}
-                  value={this.state.form.school}
-                  />
+                  value={this.state.form.school}/>
+                  {this.errorsFor('school') && <HelpBlock id='school-help-block'>{this.errorsFor('school')}</HelpBlock>}
               </FormGroup>
 
-              <FormGroup>
+              <FormGroup
+                id='teacher-form-group'
+                validationState={this.errorsFor('teacher') && 'error'}>
                 <ControlLabel id='teacher'>Teacher Name</ControlLabel>
                 <FormControl type='text' name='teacher' placeholder='Bernice Garcia' 
                   onChange={this.handleChange.bind(this)}
                   value={this.state.form.teacher}/>
+                  {this.errorsFor('teacher') && <HelpBlock id='teacher-help-block'>{this.errorsFor('teacher')}</HelpBlock>}
               </FormGroup>
 
-              <FormGroup>
+              <FormGroup
+                id='grade-form-group'
+                validationState={this.errorsFor('grade') && 'error'}>
                 <ControlLabel id='grade'>Grade Level</ControlLabel>
                 <FormControl componentClass='select' type='text' name='grade' 
                   onChange={this.handleChange.bind(this)}
@@ -118,18 +146,22 @@ class AddAssignment extends Component {
                   <option value='PE'>PE Teacher</option>
                   <option value='Other'>Other - not listed</option>
                 </FormControl>
+                {this.errorsFor('grade') && <HelpBlock id='grade-help-block'>{this.errorsFor('grade')}</HelpBlock>}
               </FormGroup>
 
-              <FormGroup>
+              <FormGroup
+                id='date-form-group'
+                validationState={this.errorsFor('date') && 'error'}>
                 <ControlLabel id='date'>Date of Assignment</ControlLabel>
                 <FormControl type='date' name='date' placeholder='03-13-2018' 
                   onChange={this.handleChange.bind(this)}
                   value={this.state.form.date} />
+                  {this.errorsFor('date') && <HelpBlock id='date-help-block'>{this.errorsFor('date')}</HelpBlock>}
               </FormGroup>
 
-              // **** RATINGS ***
-              // *********************************
-              <FormGroup>
+              <FormGroup
+                id='adminRate-form-group'
+                validationState={this.errorsFor('adminRate') && 'error'}>
                 <ControlLabel id='adminRate'>Rate the School Administration
                 </ControlLabel><br/>
                 <Rating 
@@ -137,12 +169,14 @@ class AddAssignment extends Component {
                   emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                   fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
                   initialRating={this.state.form.adminRate}
-                  onChange={this.handleAdminRatingChange}
-                  />
+                  onChange={this.handleAdminRatingChange} />
+                  {this.errorsFor('adminRate') && <HelpBlock id='adminRate-help-block'>{this.errorsFor('adminRate')}</HelpBlock>}
                   
               </FormGroup>
 
-              <FormGroup>
+              <FormGroup
+                id='lessonPlansRate-form-group'
+                validationState={this.errorsFor('lessonPlansRate') && 'error'}>
                 <ControlLabel id='lessonPlansRate'>Rate the Lesson Plans
                 </ControlLabel><br/>
                   <Rating 
@@ -150,11 +184,13 @@ class AddAssignment extends Component {
                     emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                     fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
                     initialRating={this.state.form.lessonPlansRate}
-                    onChange={this.handleLessonPlansRatingChange}
-                  />
+                    onChange={this.handleLessonPlansRatingChange} />
+                    {this.errorsFor('lessonPlansRate') && <HelpBlock id='lessonPlansRate-help-block'>{this.errorsFor('lessonPlansRate')}</HelpBlock>}
               </FormGroup>
 
-              <FormGroup>
+              <FormGroup
+                id='studentsRate-form-group'
+                validationState={this.errorsFor('studentsRate') && 'error'}>
                 <ControlLabel id='studentsRate'>Rate the Students in Your Classes
                 </ControlLabel><br/>
                   <Rating 
@@ -162,8 +198,8 @@ class AddAssignment extends Component {
                     emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                     fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
                     initialRating={this.state.form.studentsRate}
-                    onChange={this.handleStudentsRatingChange}
-                  />
+                    onChange={this.handleStudentsRatingChange} />
+                    {this.errorsFor('studentsRate') && <HelpBlock id='studentsRate-help-block'>{this.errorsFor('studentsRate')}</HelpBlock>}
               </FormGroup>
             </Col>
 
@@ -172,7 +208,9 @@ class AddAssignment extends Component {
 
             <Col xs={5} md={5}>
               <br/>
-              <FormGroup>
+              <FormGroup
+                id='schoolCultureRate-form-group'
+                validationState={this.errorsFor('schoolCultureRate') && 'error'}>
                 <ControlLabel id='schoolCultureRate'>Rate the School Culture
                 </ControlLabel><br/>
                   <Rating 
@@ -180,11 +218,13 @@ class AddAssignment extends Component {
                     emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                     fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
                     initialRating={this.state.form.schoolCultureRate}
-                    onChange={this.handleSchoolCultureRatingChange}
-                  />
+                    onChange={this.handleSchoolCultureRatingChange} />
+                    {this.errorsFor('schoolCultureRate') && <HelpBlock id='schoolCultureRate-help-block'>{this.errorsFor('schoolCultureRate')}</HelpBlock>}
               </FormGroup>
 
-              <FormGroup>
+              <FormGroup
+                id='overallRate-form-group'
+                validationState={this.errorsFor('overallRate') && 'error'}>
                 <ControlLabel id='overallRate'>Rate the Assignment Overall
                 </ControlLabel><br/>
                   <Rating 
@@ -192,11 +232,13 @@ class AddAssignment extends Component {
                     emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                     fullSymbol={<img src='../star-full.png' className='icon' alt='filled star'/>}
                     initialRating={this.state.form.overallRate}
-                    onChange={this.handleOverallRatingChange}
-                  />
+                    onChange={this.handleOverallRatingChange} />
+                    {this.errorsFor('overallRate') && <HelpBlock id='overallRate-help-block'>{this.errorsFor('overallRate')}</HelpBlock>}
               </FormGroup>
 
-              <FormGroup>
+              <FormGroup
+                id='goldList-form-group'
+                validationState={this.errorsFor('goldList') && 'error'}>
                 <ControlLabel id='goldList'>The Gold List
                 <br/><i>I would go back in a heartbeat. Add it to my favorites.</i>
                 </ControlLabel><br/>
@@ -204,10 +246,12 @@ class AddAssignment extends Component {
                     name='goldList'
                     checked={this.state.goldList}
                     onChange={this.handleChange.bind(this)}>Add to Gold List
-                  </Checkbox>
+                  </Checkbox>{this.errorsFor('goldList') && <HelpBlock id='goldList-help-block'>{this.errorsFor('goldList')}</HelpBlock>}
               </FormGroup>
 
-              <FormGroup>
+              <FormGroup
+                id='redList-form-group'
+                validationState={this.errorsFor('redList') && 'error'}>
                 <ControlLabel id='redList'>The Red List
                 <br/><i>It was a difficult assignment. Add it to the Red List. I want to remember to avoid this assignment in the future.</i>
                 </ControlLabel><br/>
@@ -215,14 +259,17 @@ class AddAssignment extends Component {
                     name='redList'
                     checked={this.state.redList}
                     onChange={this.handleChange.bind(this)}>Add to Red List
-                  </Checkbox>
+                  </Checkbox>{this.errorsFor('redList') && <HelpBlock id='redList-help-block'>{this.errorsFor('redList')}</HelpBlock>}
               </FormGroup>
 
-              <FormGroup>
+              <FormGroup
+                id='notes-form-group'
+                validationState={this.errorsFor('notes') && 'error'}>
                 <ControlLabel id='notes'>Notes about the Assignment</ControlLabel>
-                <FormControl componentClass='textarea' name='notes' placeholder='Great administration. Helpful and friendly. Lesson plans were solid. Kids were great. Only a few problems. Recess duty. Was allowed to leave without having to stay until 3.'
-                  onChange={this.handleChange.bind(this)}
-                  value={this.state.form.notes} />
+                  <FormControl componentClass='textarea' name='notes' placeholder='Great administration. Helpful and friendly. Lesson plans were solid. Kids were great. Only a few problems. Recess duty. Was allowed to leave without having to stay until 3.'
+                    onChange={this.handleChange.bind(this)}
+                    value={this.state.form.notes} />
+                    {this.errorsFor('notes') && <HelpBlock id='notes-help-block'>{this.errorsFor('notes')}</HelpBlock>}
               </FormGroup>
 
             </Col>
@@ -232,10 +279,9 @@ class AddAssignment extends Component {
             <Col xs={5} md={5}>
             </Col>
             <Col xs={2} md={2}>
-              <Button type='submit' className='btn btn-secondary' id='submit' onClick={this.handleSubmit.bind(this)}>Submit Assignment</Button>
+              <Button type='submit' className='btn btn-secondary' id='submit' onClick={this.handleSubmit.bind(this)}>Add Assignment</Button>
             </Col>
           </Row>
-
 
         </form>
       </Grid>

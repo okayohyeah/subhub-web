@@ -101,5 +101,28 @@ it('passes values on submit', () => {
   expect(submittedValues['notes']).toBe('Good class. Stayed on task mostly. Good plans, easy to follow.');
 });
 
+it('shows flash message when there is an error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'school',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('.alert-danger').length).toBe(1);
+});
+
+it('highlights school input when there is an error', ()=>{
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'school',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#school-form-group.has-error').length).toBe(1);
+});
 
 
