@@ -9,6 +9,7 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
+//inputs - headers
 it('has a school name input', () =>{
   const component = mount(<AddAssignment />);
   expect(component.find('#school').text()).toBe('School Name');
@@ -70,6 +71,7 @@ it('has a notes input', () => {
   expect(component.find('#notes').text()).toBe('Notes about the Assignment');
 });
 
+//submitHandler
 it('calls submitHandler on submit', ()=>{
   const mockSubmitHandler = jest.fn();
   const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
@@ -77,6 +79,7 @@ it('calls submitHandler on submit', ()=>{
   expect(mockSubmitHandler.mock.calls.length).toBe(1);
 });
 
+//values on submit
 it('passes values on submit', () => {
   const mockSubmitHandler = jest.fn();
   const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
@@ -101,6 +104,8 @@ it('passes values on submit', () => {
   expect(submittedValues['notes']).toBe('Good class. Stayed on task mostly. Good plans, easy to follow.');
 });
 
+//*** VALIDATIONS ***
+// alert message
 it('shows flash message when there is an error', () => {
   const mockSubmitHandler = jest.fn();
   const validationErrors = [
@@ -113,7 +118,14 @@ it('shows flash message when there is an error', () => {
   expect(component.find('.alert-danger').length).toBe(1);
 });
 
-it('highlights school input when there is an error', ()=>{
+it('does not show flash message when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component =  mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('.alert-danger').length).toBe(0);
+});
+
+//school input validations
+it('highlights school input when there is an error', ()=> {
   const mockSubmitHandler = jest.fn();
   const validationErrors = [
     {
@@ -124,5 +136,365 @@ it('highlights school input when there is an error', ()=>{
   const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
   expect(component.find('#school-form-group.has-error').length).toBe(1);
 });
+
+it('no help message for school when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#school-help-block').length).toBe(0);
+});
+
+it('shows help message for school when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'school',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#school-help-block').length).toBe(1);
+});
+
+//teacher input validations
+it('highlights teacher input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'teacher',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#teacher-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for teacher when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#teacher-help-block').length).toBe(0);
+});
+
+it('shows help message for teacher when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'teacher',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#teacher-help-block').length).toBe(1);
+});
+
+//grade input validations
+it('highlights grade input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'grade',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#grade-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for grade when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#grade-help-block').length).toBe(0);
+});
+
+it('shows help message for grade when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'grade',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#grade-help-block').length).toBe(1);
+});
+
+//date input validations
+it('highlights date input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'date',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#date-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for date when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#date-help-block').length).toBe(0);
+});
+
+it('shows help message for date when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'date',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#date-help-block').length).toBe(1);
+});
+
+//adminRate input validations 
+it('highlights adminRate input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'adminRate',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#adminRate-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for adminRate when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#adminRate-help-block').length).toBe(0);
+});
+
+it('shows help message for adminRate when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'adminRate',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#adminRate-help-block').length).toBe(1);
+});
+
+//lessonPlansRate input validations
+it('highlights lessonPlansRate input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'lessonPlansRate',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#lessonPlansRate-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for lessonPlansRate when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#lessonPlansRate-help-block').length).toBe(0);
+});
+
+it('shows help message for lessonPlansRate when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'lessonPlansRate',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#lessonPlansRate-help-block').length).toBe(1);
+});
+
+//studentsRate input validations
+it('highlights studentsRate input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'studentsRate',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#studentsRate-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for studentsRate when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#studentsRate-help-block').length).toBe(0);
+});
+
+it('shows help message for studentsRate when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'studentsRate',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#studentsRate-help-block').length).toBe(1);
+});
+
+//schoolCultureRate input validations
+it('highlights schoolCultureRate input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'schoolCultureRate',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#schoolCultureRate-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for schoolCultureRate when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#schoolCultureRate-help-block').length).toBe(0);
+});
+
+it('shows help message for schoolCultureRate when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'schoolCultureRate',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#schoolCultureRate-help-block').length).toBe(1);
+});
+
+//overallRate input validations
+it('highlights overallRate input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'overallRate',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#overallRate-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for overallRate when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#overallRate-help-block').length).toBe(0);
+});
+
+it('shows help message for overallRate when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'overallRate',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#overallRate-help-block').length).toBe(1);
+});
+
+//goldList input validations
+it('highlights goldList input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'goldList',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#goldList-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for goldList when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#goldList-help-block').length).toBe(0);
+});
+
+it('shows help message for goldList when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'goldList',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#goldList-help-block').length).toBe(1);
+});
+
+//redList input validations
+it('highlights redList input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'redList',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#redList-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for redList when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#redList-help-block').length).toBe(0);
+});
+
+it('shows help message for redList when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'redList',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#redList-help-block').length).toBe(1);
+});
+
+//notes input validations
+it('highlights notes input when there is an error', ()=> {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'notes',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#notes-form-group.has-error').length).toBe(1);
+});
+
+it('no help message for notes when there is no error', () => {
+  const mockSubmitHandler = jest.fn();
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} />);
+  expect(component.find('#notes-help-block').length).toBe(0);
+});
+
+it('shows help message for notes when there is error', () => {
+  const mockSubmitHandler = jest.fn();
+  const validationErrors = [
+    {
+      param: 'notes',
+      msg: 'Is required.'
+    }
+  ];
+  const component = mount(<AddAssignment onSubmit={mockSubmitHandler} errors={validationErrors} />);
+  expect(component.find('#notes-help-block').length).toBe(1);
+});
+
 
 
