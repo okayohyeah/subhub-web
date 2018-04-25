@@ -1,4 +1,5 @@
 var express = require('express');
+var cors = require('cors');
 var bodyParser = require('body-parser');
 var validator = require('express-validator');
 var app = express();
@@ -7,6 +8,7 @@ var Assignment = require('./models').Assignment;
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(validator());
+app.use(cors());
 
 // ROUTES
 // ** root route

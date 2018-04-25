@@ -12,54 +12,22 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      assignments: [
-        {
-          id: 1,
-          school: 'Oak Hill Elementary School',
-          teacher: 'John Blum',
-          grade: '2',
-          date: '2018-02-12', 
-          adminRate: 4,
-          lessonPlansRate: 5,
-          studentsRate: 5,
-          schoolCultureRate: 4,
-          overallRate: 5,
-          goldList: 'Yes',
-          redList: 'No',
-          notes: 'Best assignment ever. Solid!'
-        },
-        {
-          id: 2,
-          school: 'LR Green Elementary School',
-          teacher: 'Amanda Rouse',
-          grade: 'TK',
-          date: '2018-02-12', 
-          adminRate: 3,
-          lessonPlansRate: 4,
-          studentsRate: 4,
-          schoolCultureRate: 3,
-          overallRate: 4,
-          goldList: 'No',
-          redList: 'No',
-          notes: 'Just another day with some kids.'
-        },
-        {
-          id: 3,
-          school: 'Rose Elementary School',
-          teacher: 'Armando Lopez',
-          grade: '4/5',
-          date: '2017-11-22', 
-          adminRate: 1,
-          lessonPlansRate: 3,
-          studentsRate: 1,
-          schoolCultureRate: 2,
-          overallRate: 1,
-          goldList: 'No',
-          redList: 'Yes',
-          notes: 'Never Again! Worst school, class, students. Felt bad when I walked in.'
-        },
-      ]
+      apiUrl: 'http://localhost:3000',
+      assignments: [],
+      newAssignmentSuccess: false,
+      errors: null
     }
+  }
+
+
+  componentWillMount() {
+    fetch(`${this.state.apiUrl}/viewassignments`)
+    .then((rawResponse) => {
+      return rawResponse.json();
+    })
+    .then((parsedResponse) => {
+      this.setState({assignments: parsedResponse.assignments});
+    })
   }
 
   render() {
