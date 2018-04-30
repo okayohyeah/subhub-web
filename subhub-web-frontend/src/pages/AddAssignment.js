@@ -18,16 +18,16 @@ class AddAssignment extends Component {
         studentsRate: 0,
         schoolCultureRate: 0,
         overallRate: 0,
-        goldList: 'off',
-        redList: 'off',
+        goldList: false,
+        redList: false,
         notes: ''
       }
     }
   }
 
-  handleChange(event){
+  handleChange(event) {
     const formState = Object.assign({}, this.state.form);
-    formState[event.target.name] = event.target.value;
+    formState[event.target.name] = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({ ...this.state, form: formState });
     console.log('form state', formState);
   }
@@ -39,32 +39,22 @@ class AddAssignment extends Component {
   handleAdminRatingChange = (rating) => {
     // spread operator copies state
     this.setState({...this.state, form: {...this.state.form, adminRate: rating}});
-    //check rating
-    console.log('admin rating', rating);
   }
 
   handleLessonPlansRatingChange = (rating) => {
     this.setState({...this.state, form: {...this.state.form, lessonPlansRate: rating}});
-    //check rating
-    console.log('lesson plans rating', rating);
   }
 
   handleStudentsRatingChange = (rating) => {
     this.setState({...this.state, form: {...this.state.form, studentsRate: rating}});
-    //check rating
-    console.log('students rating', rating);
   }
 
   handleSchoolCultureRatingChange = (rating) => {
     this.setState({...this.state, form: {...this.state.form, schoolCultureRate: rating}});
-    //check rating
-    console.log('school culture rating', rating);
   }
 
   handleOverallRatingChange = (rating) => {
     this.setState({...this.state, form: {...this.state.form, overallRate: rating}});
-    //check rating
-    console.log('overall rating', rating);
   }
 
   errorsFor(attribute) {
