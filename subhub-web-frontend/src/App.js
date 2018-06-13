@@ -19,6 +19,31 @@ class App extends Component {
     }
   }
 
+  handleNewAssignment(params) {
+    fetch(`${this.state.apiUrl}/viewassignments`,
+    {
+      body: JSON.stringify(params), //stringify JSON for fetch
+      headers: { // sending JSON and expect JSON in return
+        'Content-Type': 'application/json' 
+      },
+      method: "POST"
+    })
+    .then((rawResponse) => {
+      return rawResponse.json();
+    })
+    .then((parsedResponse) => {
+      if(parsedResponse.errors) {
+        this.setState({errors: parsedResponse.errors})
+      } else {
+        const assignments = Object.assign([], this.state.assignments);
+        assignments.push(parsedResponse.assignment); // add new assignment to list 
+        this.setState({
+          assignments: assignments, // update assignments in state
+          errors: null // clear any exisiting errors
+        })
+      }
+    })
+  }
 
   componentWillMount() {
     fetch(`${this.state.apiUrl}/viewassignments`)
@@ -54,7 +79,10 @@ class App extends Component {
           <Route exact path='/addassignment' render={props => (
             <div>
               <NavBar />
-              <AddAssignment />
+              <AddAssignment 
+                onSubmit={this.handleNewAssignment.bind(this)}
+                errors={this.state.errors && this.state.errors.validations}
+              />
             </div>
           )} />   
 
