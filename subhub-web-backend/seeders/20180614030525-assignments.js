@@ -12,8 +12,8 @@ module.exports = {
       studentsRate: 4,
       schoolCultureRate: 4,
       overallRate: 4,
-      goldList: 'Yes',
-      redList: 'No',
+      goldList: true,
+      redList: false,
       notes: 'Friendly administration as always. Lesson plans provided good and easy to follow but LA was a difficult lesson to execute. Kids good for the most part. Overall great.',
       createdAt: new Date(),
       updatedAt: new Date()
@@ -28,8 +28,8 @@ module.exports = {
       studentsRate: 2,
       schoolCultureRate: 4,
       overallRate: 2,
-      goldList: 'No',
-      redList: 'Yes',
+      goldList: false,
+      redList: true,
       notes: 'Lesson plans provided good and easy to follow but the class was hard to manage with a handful of students with behaviorial issues. Had to call counselor to come in and intervene throughout the day.',
       createdAt: new Date(),
       updatedAt: new Date()
@@ -44,8 +44,8 @@ module.exports = {
       studentsRate: 3,
       schoolCultureRate: 4,
       overallRate: 2,
-      goldList: 'No',
-      redList: 'Yes',
+      goldList: false,
+      redList: true,
       notes: 'Solid lesson plans. No duty. Student with severe behavorial problems made it a challenging day. Otherwise the school is great',
       createdAt: new Date(),
       updatedAt: new Date()
