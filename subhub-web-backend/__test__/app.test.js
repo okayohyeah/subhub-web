@@ -36,8 +36,8 @@ it('Creates assignments', ()=> {
       studentsRate: 3,
       schoolCultureRate: 4,
       overallRate: 3,
-      goldList: 'No',
-      redList: 'No',
+      goldList: false,
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -51,8 +51,8 @@ it('Creates assignments', ()=> {
       expect(response.body.assignment.studentsRate).toBe(3),
       expect(response.body.assignment.schoolCultureRate).toBe(4),
       expect(response.body.assignment.overallRate).toBe(3),
-      expect(response.body.assignment.goldList).toBe('No'),
-      expect(response.body.assignment.redList).toBe('No'),
+      expect(response.body.assignment.goldList).toBe(false),
+      expect(response.body.assignment.redList).toBe(false),
       expect(response.body.assignment.notes).toBe('Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.')
     })
 })
@@ -70,8 +70,8 @@ it('Validates school when creating assignment', () => {
       studentsRate: 3,
       schoolCultureRate: 4,
       overallRate: 3,
-      goldList: 'No',
-      redList: 'No',
+      goldList: false,
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -95,8 +95,8 @@ it('Validates teacher when creating assignment', () => {
       studentsRate: 3,
       schoolCultureRate: 4,
       overallRate: 3,
-      goldList: 'No',
-      redList: 'No',
+      goldList: false,
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -120,8 +120,8 @@ it('Validates grade when creating assignment', () => {
       studentsRate: 3,
       schoolCultureRate: 4,
       overallRate: 3,
-      goldList: 'No',
-      redList: 'No',
+      goldList: false,
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -145,8 +145,8 @@ it('Validates grade when creating assignment', () => {
       studentsRate: 3,
       schoolCultureRate: 4,
       overallRate: 3,
-      goldList: 'No',
-      redList: 'No',
+      goldList: false,
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -170,8 +170,8 @@ it('Validates admin rating when creating assignment', () => {
       studentsRate: 3,
       schoolCultureRate: 4,
       overallRate: 3,
-      goldList: 'No',
-      redList: 'No',
+      goldList: false,
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -195,8 +195,8 @@ it('Validates lesson plans rating when creating assignment', () => {
       studentsRate: 3,
       schoolCultureRate: 4,
       overallRate: 3,
-      goldList: 'No',
-      redList: 'No',
+      goldList: false,
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -220,8 +220,8 @@ it('Validates students rating when creating assignment', () => {
       lessonPlansRate: 4,
       schoolCultureRate: 4,
       overallRate: 3,
-      goldList: 'No',
-      redList: 'No',
+      goldList: false,
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -245,8 +245,8 @@ it('Validates school culture rating when creating assignment', () => {
       lessonPlansRate: 4,
       studentsRate: 3,
       overallRate: 3,
-      goldList: 'No',
-      redList: 'No',
+      goldList: false,
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -270,8 +270,8 @@ it('Validates students rating when creating assignment', () => {
       studentsRate: 3,
       lessonPlansRate: 4,
       schoolCultureRate: 4,
-      goldList: 'No',
-      redList: 'No',
+      goldList: false,
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -296,7 +296,7 @@ it('Validates gold list when creating assignment', () => {
       lessonPlansRate: 3,
       schoolCultureRate: 4,
       overallRate: 3,
-      redList: 'No',
+      redList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -321,7 +321,7 @@ it('Validates red list when creating assignment', () => {
       lessonPlansRate: 3,
       schoolCultureRate: 4,
       overallRate: 3,
-      goldList: 'No',
+      goldList: false,
       notes: 'Okay administration. Lesson plans provided good and easy to follow but challenging at times with little prep time since I had morning duty. Kids okay for the most part. School culture was good. Overall okay.'
     })
     .then(response => {
@@ -346,8 +346,8 @@ it('Validates notes when creating assignment', () => {
       lessonPlansRate: 3,
       schoolCultureRate: 4,
       overallRate: 3,
-      goldList: 'No',
-      redList: 'No'
+      goldList: false,
+      redList: false
     })
     .then(response => {
       expect(response.statusCode).toBe(400)

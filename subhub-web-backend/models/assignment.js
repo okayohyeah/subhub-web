@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     studentsRate: DataTypes.INTEGER,
     schoolCultureRate: DataTypes.INTEGER,
     overallRate: DataTypes.INTEGER,
-    goldList: DataTypes.STRING,
-    redList: DataTypes.STRING,
+    goldList: DataTypes.BOOLEAN,
+    redList: DataTypes.BOOLEAN,
     notes: DataTypes.TEXT
   }, {
     classMethods: {

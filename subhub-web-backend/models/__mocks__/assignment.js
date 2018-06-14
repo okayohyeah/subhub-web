@@ -14,8 +14,8 @@ module.exports = function(sequelize, DataTypes){
     studentsRate: 4,
     schoolCultureRate: 2,
     overallRate: 3,
-    goldList: 'No',
-    redList: 'No',
+    goldList: false,
+    redList: false,
     notes: 'Lesson plan provided. LA complex to teach as sub. No duty. Kids okay.'
   })
 }
