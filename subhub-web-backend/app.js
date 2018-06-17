@@ -54,7 +54,7 @@ app.post('/viewassignments', (req, res) => {
           lessonPlansRate: req.body.lessonPlansRate,
           studentsRate: req.body.studentsRate,
           schoolCultureRate: req.body.schoolCultureRate,
-          overallRateoverallRate: req.body.overallRate,
+          overallRate: req.body.overallRate,
           goldlist: req.body.goldList,
           redlist: req.body.redList,
           notes: req.body.notes
