@@ -29,7 +29,9 @@ class AddAssignment extends Component {
     const formState = Object.assign({}, this.state.form);
     formState[event.target.name] = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({ ...this.state, form: formState });
-    console.log('form state', formState);
+    //console.log('form state', formState);
+    console.log(event.target.value);
+
   }
 
   handleSubmit() {
@@ -55,6 +57,7 @@ class AddAssignment extends Component {
 
   handleOverallRatingChange = (rating) => {
     this.setState({...this.state, form: {...this.state.form, overallRate: rating}});
+    console.log('overall',rating);
   }
 
   errorsFor(attribute) {
